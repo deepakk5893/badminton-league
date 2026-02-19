@@ -1,0 +1,22 @@
+<h1>Match History</h1>
+
+<p><%= link_to "Record New Match", new_match_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Winner</th>
+      <th>Loser</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @matches.each do |match| %>
+      <tr>
+        <td><%= match.played_at.strftime("%b %d, %Y") %></td>
+        <td><%= match.winner.name %></td>
+        <td><%= match.loser.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

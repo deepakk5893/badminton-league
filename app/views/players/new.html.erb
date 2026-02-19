@@ -1,0 +1,24 @@
+<h1>Add Player</h1>
+
+<%= form_with(model: @player) do |f| %>
+  <% if @player.errors.any? %>
+    <div class="errors">
+      <h3><%= pluralize(@player.errors.count, "error") %> prevented this player from being saved:</h3>
+      <ul>
+        <% @player.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Player" %>
+    <%= link_to "Cancel", players_path %>
+  </div>
+<% end %>

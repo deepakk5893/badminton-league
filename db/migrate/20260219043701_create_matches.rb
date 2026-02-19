@@ -1,0 +1,11 @@
+class CreateMatches < ActiveRecord::Migration[7.1]
+  def change
+    create_table :matches do |t|
+      t.references :winner, null: false, foreign_key: { to_table: :players }
+      t.references :loser, null: false, foreign_key: { to_table: :players }
+      t.datetime :played_at
+
+      t.timestamps
+    end
+  end
+end
